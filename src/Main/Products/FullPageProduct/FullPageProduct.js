@@ -3,26 +3,14 @@ import styled from 'styled-components';
 
 
 const fullPageProduct = (props)=>{
-    const BlackBackground = styled.div`
-        background-color: rgba(0,0,0,0.7);
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index:100;
-    `; 
+    console.log(props);
+    let product = {...props.location.state};
+    
+
     const ProductContainer = styled.div`
-        position: fixed;
         background-color: #fff;
         width: 70%;
-        max-height:90%;
-        top: 0;
-        left: 0;
-        right:0;
-        bottom: 0;
-        margin: auto;
-        z-index: 101;
+        margin: 3% auto;
     `;
         const Figure = styled.figure`
         display:flex;
@@ -89,25 +77,22 @@ const fullPageProduct = (props)=>{
     `;
 
     return(
-        <>
         <ProductContainer>
             <Figure>
                 <ImageContainer >
-                    <img style={imageStyle} src={require(`../../../assets/img/${props.product.img}`)} alt="random "/>
+                    <img style={imageStyle} src={require(`../../../assets/img/${product.img}`)} alt="random "/>
                 </ImageContainer>
                 <ImageInfo>
                     <div>
-                        <Title>props.product.title</Title>
-                        <ItemInfo>props.product.info</ItemInfo>
+                        <Title>{product.title}</Title>
+                        <ItemInfo>{product.info}</ItemInfo>
                     </div>
-                    <Price>props.product.price Euro</Price>
+                    <Price>{product.price} Euro</Price>
                     
-                    {/* <Button onClick={props.getOrderHandler}>Add to Card</Button> */}
+                    <Button onClick={props.location.getOrderHandler}>Add to Card</Button>
                 </ImageInfo>
                 </Figure>
         </ProductContainer>
-        {/* <BlackBackground onClick={props.closeProductPage} /> */}
-        </>
     );
 }
 

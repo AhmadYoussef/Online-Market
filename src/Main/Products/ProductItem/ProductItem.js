@@ -96,7 +96,11 @@ class productItem extends React.Component{
             </ImageInfo>
             <SpreaterBtn>
                 <Button onClick={this.props.getOrderHandler}>Add to Card</Button>
-                <NavLinkBtn to={`/Product/${this.props.product.category}/${this.props.product.id}`} >View</NavLinkBtn>
+                <NavLinkBtn to={{
+                    pathname:`/Product/${this.props.product.category}/${this.props.product.id}`,
+                    state: this.props.product,
+                    getOrderHandler : this.props.getOrderHandler
+                    }} >View</NavLinkBtn>
             </SpreaterBtn>
         </Figure>
 

@@ -81,11 +81,11 @@ class App extends React.Component {
           <NavBar totalItem={this.state.totalItem} />
           <Switch>
             <Route exact path="/" render={Home}/>
-            <Route exact path="/Product/:type" render={(props)=>
+            <Route  path="/Product/:type/:id" render={FullPageProduct} />
+            <Route  path="/Product/:type" render={(props)=>
               <Products 
               addHandler={this.addProduct} 
               {...props} />} />
-            <Route  path="/Product/:type/:id" Component={FullPageProduct} />
             <Route path="/Order" render={()=>
               <OrderCard 
               order={this.state.card} 
