@@ -1,4 +1,5 @@
 import  React from 'react';
+import { NavLink} from "react-router-dom";
 import styled from 'styled-components';
 
 
@@ -23,7 +24,6 @@ const fullPageProduct = (props)=>{
     const ImageContainer = styled.div`
         position: relative;
         background-color: white;
-        margin: 0 auto;
         width: 45%;
         border: 1px solid rgb(255,127,80);
         box-shadow: 0 4px 3px -3px #ccc;
@@ -75,9 +75,21 @@ const fullPageProduct = (props)=>{
         }
 
     `;
-
+    const NavLinkBtn = styled(NavLink)`
+    border: 0;
+    background-color: rgb(255,127,80);
+    text-decoration: none;
+    display:inline-block;
+    padding:10px;
+    margin: 20px 0;
+    color: white;
+    &:hover{
+        background-color: rgb(194, 99, 65);
+    }
+`;
     return(
         <ProductContainer>
+            <NavLinkBtn to={`/Product/${props.match.params.type}`}>Back</NavLinkBtn>
             <Figure>
                 <ImageContainer >
                     <img style={imageStyle} src={require(`../../../assets/img/${product.img}`)} alt="random "/>

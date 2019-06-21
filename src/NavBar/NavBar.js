@@ -44,7 +44,7 @@ const navBar = props =>{
             <StyledNavLink to='/Product/Tablet'><CatItem>Tablet</CatItem></StyledNavLink>
             <StyledNavLink to='/Product/Laptop'><CatItem>Laptop</CatItem></StyledNavLink>
         </CategoryList>
-        <StyledNavLink to='/Order'><OrderBasket>Order {props.totalItem}</OrderBasket></StyledNavLink>
+        <StyledNavLink to='/Order'><OrderBasket>Order {props.totalItem === 0 ? "": props.totalItem}</OrderBasket></StyledNavLink>
     </Nav>
   );
 }

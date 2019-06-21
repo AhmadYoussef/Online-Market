@@ -36,7 +36,10 @@ class productItem extends React.Component{
         right: 0  
     }
     const ImageInfo = styled.figcaption`
-
+        display:flex;
+        flex-direction:column;
+        justify-content:space-between;
+        height: 100%;
     `;
     const Title = styled.h2`
 
@@ -87,21 +90,24 @@ class productItem extends React.Component{
                 <img style={imageStyle} src={require(`../../../assets/img/${this.props.product.img}`)} alt="random "/>
             </ImageContainer>
             <ImageInfo>
+                <div style={{display: 'flex', flexDirection: "column", height:"100%", justifyContent:"space-between"}}>
                 <div>
                     <Title>{this.props.product.title}</Title>
                     <ItemInfo>{this.props.product.info}</ItemInfo>
                 </div>
                 <Price>{this.props.product.price} Euro</Price>
-                
-            </ImageInfo>
-            <SpreaterBtn>
+                </div>
+
+                <SpreaterBtn>
                 <Button onClick={this.props.getOrderHandler}>Add to Card</Button>
                 <NavLinkBtn to={{
                     pathname:`/Product/${this.props.product.category}/${this.props.product.id}`,
                     state: this.props.product,
                     getOrderHandler : this.props.getOrderHandler
                     }} >View</NavLinkBtn>
-            </SpreaterBtn>
+                </SpreaterBtn>
+            </ImageInfo>
+            
         </Figure>
 
         </>

@@ -40,17 +40,28 @@ const order = props => {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        background-color:black;
     `;
     const DecIncBtn = styled.button`
-        padding: 16px;
-        margin: 0 20px;
+        padding:16px 19px;
+        border: 0;
+        background-color: rgb(255,127,80);
+        text-decoration: none;
+        color: white;
+        cursor: pointer;
+        &:hover{
+            background-color: rgb(194, 99, 65);
+        }
     `;
     const OrderCount = styled.p`
         margin: 0;
-
+        padding: 0 19px;
+        color:white;
+        font-size: 1.1rem;
     `;
-    const DeleteBtn = styled.button`
-
+    const DeleteBtn = styled.div`
+        width: 33px;
+        cursor: pointer;
     `;
     console.log(props);
     return(
@@ -65,7 +76,7 @@ const order = props => {
                     <DecIncBtn value="-1" onClick={(e)=>props.incDecProductCard(props.product,e)}>-</DecIncBtn>
                 </DecInc>
                 <DeleteBtn onClick={()=>props.removeFromCard(props.product)}>
-                    del
+                    <img style={{width:"100%"}} src={require('./trash.svg')} alt="delete" />
                 </DeleteBtn>
                 <div>{props.product.totalPrice} euro</div>
             </ImgInfo>
