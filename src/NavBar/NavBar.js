@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-const navBar = props =>{
+const navBar = props => {
     const Nav = styled.nav`
         display: flex;
         justify-content: space-between;
@@ -36,17 +36,17 @@ const navBar = props =>{
         text-decoration: none;
 
     `
-  return (
-    <Nav>
-         <StyledNavLink to="/"><Logo>Best Market</Logo></StyledNavLink>
-        <CategoryList>
-            <StyledNavLink to="/Product/Handy"><CatItem>Mobile</CatItem></StyledNavLink>
-            <StyledNavLink to='/Product/Tablet'><CatItem>Tablet</CatItem></StyledNavLink>
-            <StyledNavLink to='/Product/Laptop'><CatItem>Laptop</CatItem></StyledNavLink>
-        </CategoryList>
-        <StyledNavLink to='/Order'><OrderBasket>Order {props.totalItem === 0 ? "": props.totalItem}</OrderBasket></StyledNavLink>
-    </Nav>
-  );
+    return (
+        <Nav>
+            <StyledNavLink to="/Product/Handy"><Logo>Best Market</Logo></StyledNavLink>
+            <CategoryList>
+                <StyledNavLink to="/Product/Handy"><CatItem>Mobile</CatItem></StyledNavLink>
+                <StyledNavLink to='/Product/Tablet'><CatItem>Tablet</CatItem></StyledNavLink>
+                <StyledNavLink to='/Product/Laptop'><CatItem>Laptop</CatItem></StyledNavLink>
+            </CategoryList>
+            <StyledNavLink to='/Order'><OrderBasket>Order {props.totalItem === 0 ? "" : props.totalItem}</OrderBasket></StyledNavLink>
+        </Nav>
+    );
 }
 
 export default navBar;
